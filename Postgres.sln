@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Postgres", "Postgres\Postgres.csproj", "{6F9F9762-93ED-41CF-9C08-4231A514AAF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Postgres.Tests", "Postgres.Tests\Postgres.Tests.csproj", "{34AAA8E4-AE66-4226-9B49-245B24F458B4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3071FAB0-5B5D-46ED-B49C-0D4B6B051F56}"
+ProjectSection(SolutionItems) = preProject
+	README.md = README.md
+EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F9F9762-93ED-41CF-9C08-4231A514AAF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F9F9762-93ED-41CF-9C08-4231A514AAF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F9F9762-93ED-41CF-9C08-4231A514AAF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F9F9762-93ED-41CF-9C08-4231A514AAF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34AAA8E4-AE66-4226-9B49-245B24F458B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34AAA8E4-AE66-4226-9B49-245B24F458B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34AAA8E4-AE66-4226-9B49-245B24F458B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34AAA8E4-AE66-4226-9B49-245B24F458B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
