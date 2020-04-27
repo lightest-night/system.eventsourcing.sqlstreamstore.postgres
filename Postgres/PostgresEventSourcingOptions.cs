@@ -67,7 +67,7 @@ namespace LightestNight.System.EventSourcing.SqlStreamStore.Postgres
         /// <summary>
         /// The minimum connection pool size
         /// </summary>
-        public int MinPoolSize { get; set; } = 0;
+        public int MinPoolSize { get; set; }
 
         /// <summary>
         /// The maximum connection pool size
