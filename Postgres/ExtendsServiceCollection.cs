@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using SqlStreamStore;
 
 namespace LightestNight.System.EventSourcing.SqlStreamStore.Postgres
@@ -16,6 +17,8 @@ namespace LightestNight.System.EventSourcing.SqlStreamStore.Postgres
             services.AddEventStore(eventSourcingOptions => eventSourcingOptions = postgresOptions, eventAssemblies);
 
             services.Configure(optionsAccessor);
+            services.TryAddSingleton<PostgresConnection>();
+            
             var serviceProvider = services.BuildServiceProvider();
             if (!(serviceProvider.GetService<IStreamStore>() is PostgresStreamStore))
             {
