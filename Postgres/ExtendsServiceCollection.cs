@@ -12,9 +12,10 @@ namespace LightestNight.System.EventSourcing.SqlStreamStore.Postgres
         {
             var postgresOptions = new PostgresEventSourcingOptions();
             optionsAccessor?.Invoke(postgresOptions);
+            // ReSharper disable once RedundantAssignment
+            services.AddEventStore(eventSourcingOptions => eventSourcingOptions = postgresOptions, eventAssemblies);
 
-            services.AddEventStore(postgresOptions, eventAssemblies);
-
+            services.Configure(optionsAccessor);
             var serviceProvider = services.BuildServiceProvider();
             if (!(serviceProvider.GetService<IStreamStore>() is PostgresStreamStore))
             {
