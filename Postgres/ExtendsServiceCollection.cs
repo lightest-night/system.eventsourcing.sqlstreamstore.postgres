@@ -25,7 +25,10 @@ namespace LightestNight.System.EventSourcing.SqlStreamStore.Postgres
                 services.AddSingleton<IStreamStore>(sp =>
                 {
                     var connection = sp.GetRequiredService<PostgresConnection>().Build();
-                    var streamStore = new PostgresStreamStore(new PostgresStreamStoreSettings(connection.ConnectionString));
+                    var streamStore = new PostgresStreamStore(new PostgresStreamStoreSettings(connection.ConnectionString)
+                    {
+                        Schema = postgresOptions.Schema
+                    });
                     
                     if (postgresOptions.CreateSchemaIfNotExists)
                         streamStore.CreateSchemaIfNotExists().Wait();
