@@ -34,7 +34,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="LightestNight.System.EventSourcing.SqlStreamStore" Version="1.0.20" />
+      <PackageReference Include="LightestNight.System.EventSourcing.SqlStreamStore" Version="1.0.21" />
       <PackageReference Include="SqlStreamStore.Postgres" Version="1.2.0-beta.8" />
     </ItemGroup>
 
