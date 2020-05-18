@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Options;
+﻿using LightestNight.System.Utilities.Extensions;
+using Microsoft.Extensions.Options;
 using Npgsql;
 
 namespace LightestNight.System.EventSourcing.SqlStreamStore.Postgres
@@ -6,12 +7,12 @@ namespace LightestNight.System.EventSourcing.SqlStreamStore.Postgres
     public class PostgresConnection
     {
         private readonly PostgresEventSourcingOptions _options;
-
+    
         public PostgresConnection(IOptions<PostgresEventSourcingOptions> options)
         {
-            _options = options.Value;
+            _options = options.ThrowIfNull().Value;
         }
-
+    
         public NpgsqlConnection Build()
         {
             var builder = new NpgsqlConnectionStringBuilder
