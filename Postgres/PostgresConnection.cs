@@ -10,7 +10,7 @@ namespace LightestNight.System.EventSourcing.SqlStreamStore.Postgres
     
         public PostgresConnection(IOptions<PostgresEventSourcingOptions> options)
         {
-            _options = options.ThrowIfNull().Value;
+            _options = options.ThrowIfNull(nameof(options)).Value;
         }
     
         public NpgsqlConnection Build()
