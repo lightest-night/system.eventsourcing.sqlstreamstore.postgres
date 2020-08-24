@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.Extensions.Options;
 using Npgsql;
 
 namespace LightestNight.System.EventSourcing.SqlStreamStore.Postgres
@@ -8,9 +7,9 @@ namespace LightestNight.System.EventSourcing.SqlStreamStore.Postgres
     {
         private readonly PostgresEventSourcingOptions _options;
     
-        public PostgresConnection(IOptions<PostgresEventSourcingOptions> options)
+        public PostgresConnection(PostgresEventSourcingOptions options)
         {
-            _options = (options ?? throw new ArgumentNullException(nameof(options))).Value;
+            _options = options ?? throw new ArgumentNullException(nameof(options));
         }
     
         public NpgsqlConnection Build()

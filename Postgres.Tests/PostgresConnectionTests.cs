@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using AutoFixture;
-using Microsoft.Extensions.Options;
 using Shouldly;
 using Xunit;
 
@@ -25,7 +24,7 @@ namespace LightestNight.System.EventSourcing.SqlStreamStore.Postgres.Tests
                 })
                 .Create();
             
-            _sut = new PostgresConnection(Options.Create(_options));
+            _sut = new PostgresConnection(_options);
         }
     
         [Fact]
