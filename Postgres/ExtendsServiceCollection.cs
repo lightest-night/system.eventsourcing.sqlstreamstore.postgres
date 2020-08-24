@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using SqlStreamStore;
@@ -9,12 +8,12 @@ namespace LightestNight.System.EventSourcing.SqlStreamStore.Postgres
     public static class ExtendsServiceCollection
     {
         public static IServiceCollection AddPostgresEventStore(this IServiceCollection services,
-            Action<PostgresEventSourcingOptions>? optionsAccessor = null, params Assembly[] eventAssemblies)
+            Action<PostgresEventSourcingOptions>? optionsAccessor = null)
         {
             var postgresOptions = new PostgresEventSourcingOptions();
             optionsAccessor?.Invoke(postgresOptions);
             // ReSharper disable once RedundantAssignment
-            services.AddEventStore(eventSourcingOptions => eventSourcingOptions = postgresOptions, eventAssemblies);
+            services.AddEventStore(eventSourcingOptionsAccessor: options => options = postgresOptions);
     
             services.Configure(optionsAccessor);
             services.TryAddSingleton<PostgresConnection>();
