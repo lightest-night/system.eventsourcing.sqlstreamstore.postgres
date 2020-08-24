@@ -1,4 +1,5 @@
-﻿using AutoFixture;
+﻿using System.Linq;
+using AutoFixture;
 using Microsoft.Extensions.Options;
 using Shouldly;
 using Xunit;
@@ -19,7 +20,7 @@ namespace LightestNight.System.EventSourcing.SqlStreamStore.Postgres.Tests
                 .Without(o => o.MaxPoolSize)
                 .Do(o =>
                 {
-                    o.MinPoolSize = fixture.Create<int>();
+                    o.MinPoolSize = fixture.CreateMany<int>(2).ToArray()[1];
                     o.MaxPoolSize = o.MinPoolSize + fixture.Create<int>();
                 })
                 .Create();
