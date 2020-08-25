@@ -1,9 +1,16 @@
-﻿using Npgsql;
+﻿using LightestNight.System.Data.Postgres;
+using Nelibur.ObjectMapper;
+using Npgsql;
 
 namespace LightestNight.System.EventSourcing.SqlStreamStore.Postgres
 {
     public class PostgresEventSourcingOptions : EventSourcingOptions
     {
+        static PostgresEventSourcingOptions()
+        {
+            TinyMapper.Bind<PostgresEventSourcingOptions, PostgresOptions>();
+        }
+        
         /// <summary>
         /// Whether to create the database schema if it doesn't already exist
         /// </summary>
@@ -83,5 +90,12 @@ namespace LightestNight.System.EventSourcing.SqlStreamStore.Postgres
         /// The Postgres database schema to use
         /// </summary>
         public string Schema { get; set; } = "public";
+
+        /// <summary>
+        /// Maps this instance of <see cref="PostgresEventSourcingOptions" /> to an instance of <see cref="PostgresOptions" />
+        /// </summary>
+        /// <returns>A new instance of <see cref="PostgresOptions" /> using this instance of <see cref="PostgresEventSourcingOptions" /> as seed data</returns>
+        public PostgresOptions ToPostgresOptions()
+            => TinyMapper.Map<PostgresOptions>(this);
     }
 }
